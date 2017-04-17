@@ -1,0 +1,40 @@
+Q1. 
+*****
+****
+***
+**
+*
+
+01.1. 
+******
+****
+***
+**
+*
+
+*
+***
+******
+
+02. completed!! range == 0 to 100. if modulus==0, print only those values where modulus is 0 when divided by 3
+
+03. range == 0 to 100. if modulus==0, print only those values where modulus is  not 0 when divided by 3
+
+04. praveen sharma...when you find M...give position.
+
+5. echo prime numbers
+
+06. grades using switch case
+
+07 !!homeword!!. Create an application for calculator.
+variable 1
+variable 2
+result
+
+addition, subtraction, multiplication, division, modulus
+
+08. function. get averaage of 10 functions.
+
+09.!! fwrite & fread function
+
+10. create class bicycle. increasing speed. 

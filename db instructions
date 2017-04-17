@@ -1,0 +1,71 @@
+to select rows
+	SELECT * FROM "table name" WHERE page_id=2;
+
+to insert row where pages=table; header, title=columns;
+	INSERT pages(header,title) VALUES('new row','new page added via insert query')
+
+to update a row
+	UPDATE pages SET title='changed title' WHERE page_id=4
+
+to delete a row
+	DELETE FROM pages WHERE page_id=4
+
+to SELECT a NULL row
+	SELECT * FROM pages	 WHERE content=''
+
+order by 
+	SELECT * FROM pages	ORDER BY page_id DESC
+
+creat table in database
+	USE mydb; CREATE TABLE sub_pages(sub_title varchar(200), number_view mediumint)	
+
+delete table
+	DROP TABLE sub_pages
+
+display data from multiple tables – JOIN
+	SELECT pages.page_id, pages.title, sub_pages.number_view FROM pages,sub_pages
+
+	SELECT pages.page_id, pages.title, sub_pages.number_view FROM pages,sub_pages WHERE pages.page_id=sub_pages.sub_id
+
+
+	SELECT pages.page_id, pages.title, sub_pages.number_view FROM pages JOIN sub_pages ON pages.page_id=sub_pages.sub_id	
+
+	SELECT pages.page_id, pages.title, sub_pages.number_view FROM pages RIGHT OUTER JOIN sub_pages ON pages.page_id=sub_pages.sub_id
+
+	SELECT pages.page_id, pages.title, sub_pages.number_view FROM pages LEFT OUTER JOIN sub_pages ON pages.page_id=sub_pages.sub_id
+
+	SELECT pages.page_id, pages.title, sub_pages.number_view FROM pages INNER JOIN sub_pages ON pages.page_id=sub_pages.sub_id
+
+Aggregate function (no subtraction)
+	SELECT content_type, COUNT(page_id) FROM pages GROUP BY content_type
+
+	SELECT content_type, MIN(page_id) FROM pages GROUP BY content_type
+
+	SELECT content_type, MAX(page_id) FROM pages GROUP BY content_type
+
+	SELECT content_type, AVG(page_id) FROM pages GROUP BY content_type
+
+	SELECT content_type, SUM(page_id) FROM pages GROUP BY content_type
+
+
+HAVING Clause – accepts with aggregate condition
+	SELECT content_type, COUNT(page_id) FROM pages GROUP BY content_type HAVING COUNT(page_id) > 2
+
+ALIAS where "summation" is Alias
+	SELECT content_type, SUM(page_id) summation FROM pages GROUP BY content_type HAVING SUM(page_id) > 8
+
+Algebraic functions
+	SELECT sub_id, number_view, number_view*2 'double of number view' FROM sub_pages
+
+	SELECT sub_id, number_view, (number_view*2)/3 'double of number view', number_view*2 'other'  FROM sub_pages
+
+SUB QUERY = Display title, header, content_type, page_id from pages whose page_id is greater than that of title "booleans" page id
+
+	SELECT title, header, content_type, page_id FROM pages WHERE page_id > (SELECT page_id FROM pages WHERE title="Booleans")
+
+Display title, header, content_type, page_id, number_view from pages, sub_pages whose page_id is greater than that of title "booleans" page id
+	sub_query & join
+
+Display content_type, number of page id from pages whose page_id is greater than that of title "booleans" page id && minimum number of page_id is > 2
+	sub_query & group by
+
