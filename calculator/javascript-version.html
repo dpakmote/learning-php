@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+	<div style="display:block;" id="response">0</div>
+	<form name="cal" action="javascript:void();">
+		<input type="text" name="displayBlock">
+		<button name="button1" value="1" onClick="display(this.value);">1</button>
+		<button name="button2" value="2" onClick="display(this.value);">2</button>
+		<button name="button3" value="3" onClick="display(this.value);">3</button>
+		<button name="buttonDot" value="." onClick="display(this.value);">.</button>
+		<button name="buttonAdd" value="+" onClick="display(this.value);">+</button>
+		<button name="buttonSub" value="-" onClick="display(this.value);">-</button>
+		<button name="buttonDiv" value="/" onClick="display(this.value);">/</button>
+		<button name="buttonResult" value="=" onClick="displayBlock.value=eval(displayBlock.value)">=</button>
+	</form>
+</body>
+	<script>
+		function display(x){
+			cal.displayBlock.value=cal.displayBlock.value+x;
+		}
+	</script>
+</html>
